@@ -1,8 +1,10 @@
 package com.sparta.aa.controller.sort;
 
 
+import java.util.Arrays;
+
 public class BubbleSort {
-    
+
     /**
      * Sorts an int Array using the BubbleSort method
      *
@@ -10,23 +12,23 @@ public class BubbleSort {
      * @return the sorted array
      */
     public static int[] sort(int[] unsorted) {
-        boolean sorted = false;                                 // Initialize sorting check to minimize sorting cycles
-        int[] numbers = unsorted;                               // Copy of unsorted numbers
+        boolean sorted = false;                                             // Initialize sorting check to minimize sorting cycles
+        int[] sortCandidate = Arrays.copyOf(unsorted, unsorted.length);     // Copy of unsorted numbers
 
-        if (numbers != null && numbers.length > 1) {
+        if (sortCandidate != null && sortCandidate.length > 1) {
             while (!sorted) {
                 sorted = true;                                  // Assume array has been sorted every new cycle
 
-                for (int i = 0; i < numbers.length - 1; i++) {
-                    if (numbers[i] > numbers[i+1]) {
+                for (int i = 0; i < sortCandidate.length - 1; i++) {
+                    if (sortCandidate[i] > sortCandidate[i+1]) {
                         sorted = false;                         // Rectify assumption when unsorted element found
-                        swap(numbers, i, i+1);
+                        swap(sortCandidate, i, i+1);
                     }
                 }
             }
         }
 
-        return numbers;
+        return sortCandidate;
     }
 
     /**
