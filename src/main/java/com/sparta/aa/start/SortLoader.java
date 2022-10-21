@@ -6,7 +6,7 @@ import com.sparta.aa.controller.SortManager;
  * Sort Manager Entrypoint
  *
  */
-public class App {
+public class SortLoader {
     public static void main( String[] args ) {
         SortManager.start();
     }
