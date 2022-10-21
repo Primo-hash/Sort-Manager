@@ -54,6 +54,13 @@ public class SortManager {
                                 SortFactory.generateSorter(Sorter.MERGE).sort(unsorted),
                                 0
                         );
+                    case BST:
+                        DisplayManager.printSortingReport(
+                                Sorter.BST,
+                                unsorted,
+                                SortFactory.generateSorter(Sorter.BST).sort(unsorted),
+                                0
+                        );
                     default:
                         System.out.println("This sorting option is unavailable\n"); // INFO
                 }
@@ -66,7 +73,7 @@ public class SortManager {
     public static int[] promptRandomArray() {
         int arraySizeChoice = getArraySizeChoice();;
         int[] randomIntArray = null;
-        // TODO catch exception thrown by ArrayGenerator
+        // TODO catch custom exception thrown by ArrayGenerator
         try {
             randomIntArray = ArrayGenerator.generateRandomIntArray(arraySizeChoice, MINARRAYVALUERANGE, MAXARRAYVALUERANGE);
         } catch (NullPointerException e) {

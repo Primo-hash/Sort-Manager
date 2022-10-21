@@ -1,5 +1,6 @@
 package com.sparta.aa.model.factory;
 
+import com.sparta.aa.controller.sort.BST;
 import com.sparta.aa.controller.sort.BubbleSort;
 import com.sparta.aa.controller.sort.MergeSort;
 import com.sparta.aa.controller.sort.Sortable;
@@ -14,6 +15,9 @@ public class SortFactory {
             }
             case MERGE -> {
                 return new MergeSort();
+            }
+            case BST -> {
+                return new BST();
             }
             default -> throw new SorterLoaderException("Invalid Sorter choice: " + sorter.getName());
         }
