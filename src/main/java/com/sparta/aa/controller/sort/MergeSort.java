@@ -2,26 +2,26 @@ package com.sparta.aa.controller.sort;
 
 import java.util.Arrays;
 
-public class MergeSort {
+public class MergeSort implements Sortable {
 
-    public static int[] sort(int[] unsorted) {
+    public int[] sort(int[] unsorted) {
         int[] sortCandidate = Arrays.copyOf(unsorted, unsorted.length);     // Copy of unsorted numbers
         int leftBound = 0;
         int rightBound = sortCandidate.length - 1;
 
-        recursiveSort(sortCandidate, leftBound, rightBound);
+        sortRecursive(sortCandidate, leftBound, rightBound);
 
         return sortCandidate;
     }
 
-    public static void recursiveSort(int[] sortCandidate, int leftBound, int rightBound) {
+    public static void sortRecursive(int[] sortCandidate, int leftBound, int rightBound) {
         if (leftBound < rightBound) {
             // Find the middle index
             int midIndex = leftBound + (rightBound - leftBound) / 2;
 
             // Sort left and right separated by middle index
-            recursiveSort(sortCandidate, leftBound, midIndex);
-            recursiveSort(sortCandidate, midIndex + 1, rightBound);
+            sortRecursive(sortCandidate, leftBound, midIndex);
+            sortRecursive(sortCandidate, midIndex + 1, rightBound);
 
             // Ascending comparison with merge
             compareAndMerge(sortCandidate, leftBound, midIndex, rightBound);

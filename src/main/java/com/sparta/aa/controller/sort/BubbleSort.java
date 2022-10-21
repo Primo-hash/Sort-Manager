@@ -3,7 +3,7 @@ package com.sparta.aa.controller.sort;
 
 import java.util.Arrays;
 
-public class BubbleSort {
+public class BubbleSort implements Sortable {
 
     /**
      * Sorts an int Array using the BubbleSort method
@@ -11,7 +11,7 @@ public class BubbleSort {
      * @param unsorted the array to be sorted
      * @return the sorted array
      */
-    public static int[] sort(int[] unsorted) {
+    public int[] sort(int[] unsorted) {
         boolean sorted = false;                                             // Initialize sorting check to minimize sorting cycles
         int[] sortCandidate = Arrays.copyOf(unsorted, unsorted.length);     // Copy of unsorted numbers
 

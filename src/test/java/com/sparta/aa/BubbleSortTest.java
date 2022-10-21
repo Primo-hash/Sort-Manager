@@ -17,6 +17,7 @@ import java.util.Random;
 public class BubbleSortTest {
 
     static int[] unsortedIntArray;    // Unsorted array
+    static BubbleSort bubbleSort = new BubbleSort();
 
     @BeforeEach
     public void setNewUnsortedIntArray() {
@@ -28,35 +29,35 @@ public class BubbleSortTest {
     @DisplayName("Check that empty array returns empty array")
     void checkThatEmptyArrayReturnsEmptyArray() {
         int[] arr = new int[0];
-        Assertions.assertArrayEquals(arr, BubbleSort.sort(arr));
+        Assertions.assertArrayEquals(arr, bubbleSort.sort(arr));
     }
 
     @Test
     @DisplayName("Check that single element array returns single element array")
     void checkThatSingleElementArrayReturnsArray() {
         int[] arr = {1};
-        Assertions.assertArrayEquals(arr, BubbleSort.sort(arr));
+        Assertions.assertArrayEquals(arr, bubbleSort.sort(arr));
     }
 
     @Test
     @DisplayName("Check that unsorted array returns sorted array")
     void checkThatUnsortedArrayReturnsSortedArray() {
         int[] arr = {7,5,4,3,2,1,8,6};
-        Assertions.assertArrayEquals(new int[]{1,2,3,4,5,6,7,8}, BubbleSort.sort(arr));
+        Assertions.assertArrayEquals(new int[]{1,2,3,4,5,6,7,8}, bubbleSort.sort(arr));
     }
 
     @Test
     @DisplayName("Check that array with negative ints returns sorted array")
     void checkThatNegativeElementArrayReturnsSortedArray() {
         int[] arr = {-6, -5, -4, 0, 5, 7, 8, 2, 4, 1};
-        Assertions.assertArrayEquals(new int[]{-6, -5, -4, 0, 1, 2, 4, 5, 7, 8}, BubbleSort.sort(arr));
+        Assertions.assertArrayEquals(new int[]{-6, -5, -4, 0, 1, 2, 4, 5, 7, 8}, bubbleSort.sort(arr));
     }
 
     @Test
     @DisplayName("Check that array with same ints returns sorted array")
     void checkThatSameElementArrayReturnsSortedArray() {
         int[] arr = {-6, -5, -4, 0, 5, 5, 5, 5, 2, 4, 1};
-        Assertions.assertArrayEquals(new int[]{-6, -5, -4, 0, 1, 2, 4, 5, 5, 5, 5}, BubbleSort.sort(arr));
+        Assertions.assertArrayEquals(new int[]{-6, -5, -4, 0, 1, 2, 4, 5, 5, 5, 5}, bubbleSort.sort(arr));
     }
 
     @Test
@@ -65,6 +66,6 @@ public class BubbleSortTest {
         int[] arrayCopy = unsortedIntArray.clone();
         Arrays.sort(arrayCopy);
 
-        Assertions.assertArrayEquals(arrayCopy, BubbleSort.sort(unsortedIntArray));
+        Assertions.assertArrayEquals(arrayCopy, bubbleSort.sort(unsortedIntArray));
     }
 }

@@ -18,6 +18,7 @@ import java.util.Random;
 public class MergeSortTest {
 
     static int[] unsortedIntArray;    // Unsorted array
+    static MergeSort mergeSort = new MergeSort();
 
     @BeforeEach
     public void setNewUnsortedIntArray() {
@@ -29,35 +30,35 @@ public class MergeSortTest {
     @DisplayName("Check that empty array returns empty array")
     void checkThatEmptyArrayReturnsEmptyArray() {
         int[] arr = new int[0];
-        Assertions.assertArrayEquals(arr, MergeSort.sort(arr));
+        Assertions.assertArrayEquals(arr, mergeSort.sort(arr));
     }
 
     @Test
     @DisplayName("Check that single element array returns single element array")
     void checkThatSingleElementArrayReturnsArray() {
         int[] arr = {1};
-        Assertions.assertArrayEquals(arr, MergeSort.sort(arr));
+        Assertions.assertArrayEquals(arr, mergeSort.sort(arr));
     }
 
     @Test
     @DisplayName("Check that unsorted array returns sorted array")
     void checkThatUnsortedArrayReturnsSortedArray() {
         int[] arr = {7,5,4,3,2,1,8,6};
-        Assertions.assertArrayEquals(new int[]{1,2,3,4,5,6,7,8}, MergeSort.sort(arr));
+        Assertions.assertArrayEquals(new int[]{1,2,3,4,5,6,7,8}, mergeSort.sort(arr));
     }
 
     @Test
     @DisplayName("Check that array with negative ints returns sorted array")
     void checkThatNegativeElementArrayReturnsSortedArray() {
         int[] arr = {-6, -5, -4, 0, 5, 7, 8, 2, 4, 1};
-        Assertions.assertArrayEquals(new int[]{-6, -5, -4, 0, 1, 2, 4, 5, 7, 8}, MergeSort.sort(arr));
+        Assertions.assertArrayEquals(new int[]{-6, -5, -4, 0, 1, 2, 4, 5, 7, 8}, mergeSort.sort(arr));
     }
 
     @Test
     @DisplayName("Check that array with same ints returns sorted array")
     void checkThatSameElementArrayReturnsSortedArray() {
         int[] arr = {-6, -5, -4, 0, 5, 5, 5, 5, 2, 4, 1};
-        Assertions.assertArrayEquals(new int[]{-6, -5, -4, 0, 1, 2, 4, 5, 5, 5, 5}, MergeSort.sort(arr));
+        Assertions.assertArrayEquals(new int[]{-6, -5, -4, 0, 1, 2, 4, 5, 5, 5, 5}, mergeSort.sort(arr));
     }
 
     @Test
@@ -66,6 +67,6 @@ public class MergeSortTest {
         int[] arrayCopy = unsortedIntArray.clone();
         Arrays.sort(arrayCopy);
 
-        Assertions.assertArrayEquals(arrayCopy, MergeSort.sort(unsortedIntArray));
+        Assertions.assertArrayEquals(arrayCopy, mergeSort.sort(unsortedIntArray));
     }
 }
