@@ -1,4 +1,4 @@
-package com.sparta.aa;
+package com.sparta.aa.controller;
 
 import com.sparta.aa.controller.sort.BubbleSort;
 import com.sparta.aa.controller.sort.MergeSort;
@@ -19,10 +19,10 @@ public class MergeSortTest {
 
     static int[] unsortedIntArray;    // Unsorted array
     static MergeSort mergeSort = new MergeSort();
+    Random random = new Random();
 
     @BeforeEach
     public void setNewUnsortedIntArray() {
-        Random random = new Random();
         unsortedIntArray = random.ints(15, -20, 100).toArray();
     }
 
@@ -48,6 +48,13 @@ public class MergeSortTest {
     }
 
     @Test
+    @DisplayName("Check that odd sized array returns sorted array")
+    void checkThatOddSizedArrayReturnsSortedArray() {
+        int[] arr = {7,5,4,3,2,1,8,6,9};
+        Assertions.assertArrayEquals(new int[]{1,2,3,4,5,6,7,8,9}, mergeSort.sort(arr));
+    }
+
+    @Test
     @DisplayName("Check that array with negative ints returns sorted array")
     void checkThatNegativeElementArrayReturnsSortedArray() {
         int[] arr = {-6, -5, -4, 0, 5, 7, 8, 2, 4, 1};
@@ -64,6 +71,16 @@ public class MergeSortTest {
     @Test
     @DisplayName("Check that randomized array returns sorted array")
     void checkThatRandomArrayReturnsSortedArray() {
+        int[] arrayCopy = unsortedIntArray.clone();
+        Arrays.sort(arrayCopy);
+
+        Assertions.assertArrayEquals(arrayCopy, mergeSort.sort(unsortedIntArray));
+    }
+
+    @Test
+    @DisplayName("Check that large array returns sorted array")
+    void checkThatLargeArrayReturnsSortedArray() {
+        unsortedIntArray = random.ints(1000, -20, 100).toArray();
         int[] arrayCopy = unsortedIntArray.clone();
         Arrays.sort(arrayCopy);
 
