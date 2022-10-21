@@ -1,11 +1,11 @@
 package com.sparta.aa.model.sort;
 
-public enum Sorters {
+public enum Sorter {
     BUBBLE("Bubblesort"), MERGE("Mergesort");
 
     private final String name;
 
-    Sorters(String name) {
+    Sorter(String name) {
         this.name = name;
     }
 
